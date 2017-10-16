@@ -1,4 +1,8 @@
 class UsersController < Clearance::UsersController
+  def new
+    @user = User.new
+  end
+
   def show
     @user = User.find(params[:id])
     @shouts = @user.shouts
@@ -7,6 +11,6 @@ class UsersController < Clearance::UsersController
   private
 
   def user_params
-    params.require(:user).permit(:username, :email, :password)
+    params.require(:user).permit( :username, :email, :password)
   end
 end
