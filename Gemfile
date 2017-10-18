@@ -12,8 +12,10 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jbuilder', '~> 2.5'
 gem 'clearance'
 gem 'paperclip'
+gem 'sunspot_rails'
 
 group :development, :test do
+  gem 'sunspot_solr'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 group :development do
