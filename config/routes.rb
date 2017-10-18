@@ -5,12 +5,15 @@ Rails.application.routes.draw do
   root "homes#show"
   post 'text_shouts', to: 'shouts#create', defaults: { content_type: TextShout }
   post 'photo_shouts', to: 'shouts#create', defaults: { content_type: PhotoShout }
+
   resources :shouts, only: [:show] do
     member do
       post 'like', to: 'likes#create'
       delete 'unlike', to: 'likes#destroy'
     end
   end
+
+  resources :hashtags, only: [:show]
 
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
   resource :session, only: [:create]
